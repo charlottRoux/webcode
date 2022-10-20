@@ -30,7 +30,7 @@ app.get('/webmap',(req,res)=>{
   res.sendFile('ResumePage.html',options);
 })
 module.exports=app;
-app.listen(process.env.port||port);
+app.listen(process.env.PORT||port);
 
 // const server = http.createServer((req, res) => {
 // const page = url.parse(req.url).pathname;
