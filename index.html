@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>portfolio index page</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+    <div class="container-top">
+      <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/webmap">Webmapping</a>
+      </div>
+      <span class="left-header-span">
+        <div class="title">
+        <h1>Charlotte Roux</h1>
+      </div>
+      <div class="tagline">
+        <h2>Just another gal on the internet</h2>
+      </div>
+        </span>
+      <span class="headshot-block">
+        <img src="images/headshot-modified.png" alt= "headshot" id="headshot"/>
+      </span>
+    </div>
+    <div class = "central-components">
+        <span class="content-container left">
+          <h2> Fullstack Development</h2>
+            <p> I am a versitile fullstack developer with experience working in .dotnet,nodejs and other technologies. I am interested in modernizing outdated systems and bringing new designs to completion while maintaining high readability and clear overall architecture. I am additionally well versed in Oracle databases and nosql databases such as Mongodb.  </p>
+        </span>
+
+        <span class="content-container center">
+          <h2> GIS technologies and integrations</h2>
+            <p> Experienced with arcGIS user administration, high availability applications, and user training. I can take your gis projects to the next level by combining GIS training with a full stack technical skillset. Not only have I worked with the standard ESRI toolkit, but I also have experience with openlayers and the mapbox api. I can create new mapping applications, or maintain and train users on existing tools.</p>
+        </span>
+
+
+        <span class="content-container right">
+            <h2>Sustanability and recycling</h2>
+            <p>Between repairing electronics or working on my own personal garden, much of what I do is driven by a commitment towards sustanability. By repairing instead of replacing old technologies, I keep working technology around for longer periods of time while maintining high usability. The modular nature of these older technologies also enables a quicker and easier repair process that inspires me to create modular and highly repairable things  </p>
+        </span>
+    </div>
+    <div class = "lower-components">
+      <span class = "map-button">
+        <div class ="button-sublayer">
+        <button class="mapBaselayerButton"  type="button">
+        Add to favorites 1
+      </button>
+      <button class="mapBaselayerButton"  type="button">
+      Add to favorites 2
+      </button>
+      </div>
+      <div id="map" class = "map-box">
+        <script>
+        var layers = [
+         new ol.layer.Tile({
+           source: new ol.source.OSM()
+         }),
+         new ol.layer.Tile({
+           extent: [-13884991, 2870341, -7455066, 6338219],
+           source: new ol.source.TileWMS({
+             url: 'https://ahocevar.com/geoserver/wms',
+             params: {'LAYERS': 'topp:states', 'TILED': true},
+             serverType: 'geoserver',
+             // Countries have transparency, so do not fade tiles:
+             transition: 0
+           })
+         })
+       ];
+       var map = new ol.Map({
+         layers: layers,
+         target: 'map',
+         view: new ol.View({
+           center: [-10997148, 4569099],
+           zoom: 4
+         })
+       });
+        </script>
+      </div>
+    </span>
+    <div class="ecfcontainer">
+       <p>For work inqueries and other things, email me at charlottroux@gmail.com</p>
+    </div>
+
+
+
+    </div>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="css/ResumePage.css"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <style>
+      #map {
+        width: 400px;
+        height: 250px;
+      }
+    </style>
+  </head>
+  <header>
+    <h1> Charlottes Personal Webpage and all that stuff
+    </h1>
+
+  </header>
+  <main>
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="/webmap">Webmapping</a>
+    </div>
+  <div class = "container">
+    <div class ="column">
+
+      <div class = "Box1">
+        Test pages
+      </div>
+
+      <div class ="Box2">
+        <p>Resume <a href="documents/ResumeC_ROUX.docx"> Here</a></p>
+      </div>
+    </div>
+
+  </div>
+  <div class = "container-center">
+    <div class = "contentbox">
+      <p>Welcome to charlottes personal website, shes da best      </p>
+    </div>
+    <div id="map" class = "map-box">
+      <script>
+      var layers = [
+       new ol.layer.Tile({
+         source: new ol.source.OSM()
+       }),
+       new ol.layer.Tile({
+         extent: [-13884991, 2870341, -7455066, 6338219],
+         source: new ol.source.TileWMS({
+           url: 'https://ahocevar.com/geoserver/wms',
+           params: {'LAYERS': 'topp:states', 'TILED': true},
+           serverType: 'geoserver',
+           // Countries have transparency, so do not fade tiles:
+           transition: 0
+         })
+       })
+     ];
+     var map = new ol.Map({
+       layers: layers,
+       target: 'map',
+       view: new ol.View({
+         center: [-10997148, 4569099],
+         zoom: 4
+       })
+     });
+      </script>
+
+    </div>
+</script>
+<span class = "headshot-box">
+  <img src ="images/borphmin.png" alt = "headshot"/>
+</span>
+
+
+    </div>
+
+    <div class ="login-container">
+      <label for username> Username </label>
+      <input type = text id = "name" name="name">
+      <label for password> Password </label>
+      <input type =password id = "pass" name="pass">
+      <button class="login" type="button">
+        Login for GIS functionality
+      </button>
+  </div>
+  </main>
+</html>

@@ -1,0 +1,58 @@
+
+html{
+  background-color:rgba(255,187,222,0.8);
+}
+h1 {
+  color:blue;
+}
+.container{
+  float:left;
+
+  justify-content: space-between;
+
+}
+
+
+.column{
+
+  display:inline-block;
+  border-right:solid;
+  text-align:left;
+  display:inline-block;
+  margin=2px auto;
+
+}
+
+.Box1{
+  padding-top=.75rem;
+  padding-bottom = .75rem;
+}
+.Box2{
+  padding=2px;
+}
+
+.container-center{
+padding:10px;
+position: relative;
+right:px;
+margin:auto;
+display:flex;
+}
+.column_center{
+  margin: auto;
+  padding:0px;
+
+
+}
+.login-container{
+  display:inline-block;
+  position:absolute;
+  magin=20px auto;
+  top:1px;
+  left:800px;
+  width: 160px;
+}
+.map-box{
+  margin:20px;
+
+}

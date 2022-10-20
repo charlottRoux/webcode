@@ -1,0 +1,56 @@
+
+html{
+  background-color:rgba(255,187,222,0.8);
+}
+h1 {
+  color:blue;
+}
+.container{
+  float:left;
+  style:width;
+  justify-content: space-between;
+
+}
+
+
+.column{
+  style:width;
+  display:inline-block;
+  border-right:solid;
+  text-align:left;
+  display:inline-block;
+  margin=2px auto;
+  padding:20px;
+
+}
+.headshot-box{
+  padding:20px;
+}
+.Box1{
+  padding=20px;
+}
+.Box2{
+  padding=20px;
+}
+
+.container-center{
+padding:10px;
+position: relative;
+right:px;
+margin:auto;
+display:flex;
+}
+.column_center{
+  margin: auto;
+
+
+}
+.login-container{
+  display:inline-block;
+  position:absolute;
+  padding=20px auto;
+  margin:20px;
+  top:1px;
+  left:800px;
+  width: 160px;
+}

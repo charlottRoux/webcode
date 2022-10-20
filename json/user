@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Users",
+  "description": "Contains username and salted pass",
+  "type": "object",
+  "properties":{
+      "id":{
+          "description": "user number",
+          "type": "number"
+      }
+      "username":{
+          "description": "username",
+          "type" :"string"
+      }
+      "password":{
+          "description": "password",
+          "type": "string"
+      }
+  }
+  "required": [
+      "id"
+      "username",
+      "password"
+  ]
+}
