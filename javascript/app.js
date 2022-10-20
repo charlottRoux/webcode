@@ -2,12 +2,13 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
 const querystring = require('querystring')
 const port=8000;
 const app=express();
 
-
+app.use=(cors);
 var options = {
   root: path.join(__dirname,'..')
 };
