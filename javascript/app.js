@@ -4,8 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express')
 const querystring = require('querystring')
-const hostname = '127.0.0.1';
-const port = 3000;
+const port=8000;
 const app=express();
 
 
@@ -31,7 +30,7 @@ app.get('/webmap',(req,res)=>{
   res.sendFile('ResumePage.html',options);
 })
 module.exports=app;
-app.listen(process.env.port);
+app.listen(process.env.port||port);
 
 // const server = http.createServer((req, res) => {
 // const page = url.parse(req.url).pathname;
