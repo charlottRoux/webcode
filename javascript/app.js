@@ -6,8 +6,11 @@ const express = require('express')
 const querystring = require('querystring')
 const port=8000;
 const app=express();
+const bcrypt = require('bcrypt');
 
 
+
+app.use(express.json())
 var options = {
   root: path.join(__dirname,'..')
 };
@@ -23,35 +26,56 @@ app.get('/users',(req, res)=>{
   res.json(users);
 })
 
+app.post('/users',async (req,res)=>{
+  try{
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const user= {
+        name: req.body.name,
+        password: hashedPassword
+      }
+      console.log(user)
+      users.push(user);
+      res.status(201).send(user);
+  }
+  catch{
+    res.status(500).send();
+
+  }
+
+  //User create and hash password
+})
+
+app.post('/users/login', async(req,res) =>{
+  const user = users.find(user =>user.name === req.body.name)
+  if (user == null){
+    res.status(400).send('Cannot find user');
+  }
+  try{
+      if(await(bcrypt.compare(req.body.password, user.password))){
+      res.send('Success');
+    }
+    else{
+      res.send('login failed');
+    }
+  }
+  catch{
+    res.status(500).send();
+  }
+
+
+
+})
+
 app.get('/',(req,res)=>{
   res.sendFile('index.html',options);
 })
+
 app.get('/webmap',(req,res)=>{
-  res.sendFile('ResumePage.html',options);
+  res.sendFile('login.html',options);
 })
+
 module.exports=app;
 app.listen(process.env.PORT||port);
-// const server = http.createServer((req, res) => {
-// const page = url.parse(req.url).pathname;
-// console.log(page)
-//   if (page == '/'){
-//     fs.readFile('ResumePage.html', function(err,data){
-//       res.statusCode = 200;
-//       res.writeHead(200, {'Contest-Type' : 'text/html'});
-//       res.write(data);
-//       res.end();
-//     });
-//   }
-//   else if (page == '/css/ResumePage.css'){
-//     fs.readFile('css/ResumePage.css', function(err,data){
-//       res.write(data);
-//       res.end();
-//     });
-//   }
-//
-//
-// });
-//
-// server.listen(port, hostname, () => {
+
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
