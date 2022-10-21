@@ -34,13 +34,15 @@ h2{
   padding:20px;
   display:flex;
   align-items: baseline;
+  height:500;
 }
 .content-container{
   margin:auto;
   padding = 50px;
   box-sizing: content-box;
+  height:200px;
   width: 500px;
-  height: 200px;
+  backround-size:contain;
   border:1.5mm ridge rgba(0, 180, 40, 0.8);
   text-align: center;
 

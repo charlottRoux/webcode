@@ -71,7 +71,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/webmap',(req,res)=>{
-  res.sendFile('login.html',options);
+  res.sendFile('placeholder.html',options);
 })
 
 module.exports=app;
