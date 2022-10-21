@@ -1,0 +1,11 @@
+html{
+  background-color:rgba(255,187,222,0.8);
+}
+.login-container{
+  display: flex;
+  flex-direction: column;
+  float:left
+}
+.button{
+  flex-direction: row;
+}
